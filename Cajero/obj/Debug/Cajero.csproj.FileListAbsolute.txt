@@ -1,0 +1,6 @@
+c:\users\jbrenesjimene\documents\visual studio 2015\Projects\Cajero\Cajero\bin\Debug\Cajero.exe.config
+c:\users\jbrenesjimene\documents\visual studio 2015\Projects\Cajero\Cajero\bin\Debug\Cajero.exe
+c:\users\jbrenesjimene\documents\visual studio 2015\Projects\Cajero\Cajero\bin\Debug\Cajero.pdb
+c:\users\jbrenesjimene\documents\visual studio 2015\Projects\Cajero\Cajero\obj\Debug\Cajero.csprojResolveAssemblyReference.cache
+c:\users\jbrenesjimene\documents\visual studio 2015\Projects\Cajero\Cajero\obj\Debug\Cajero.exe
+c:\users\jbrenesjimene\documents\visual studio 2015\Projects\Cajero\Cajero\obj\Debug\Cajero.pdb
