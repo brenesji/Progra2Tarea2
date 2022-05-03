@@ -1,0 +1,50 @@
+---
+apiVersion: apps/v2
+kind: Deployment
+metadata:
+  name: test2-lb-wdc-app
+  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test2-lb-wdc-app
+  template:
+    metadata:
+      labels:
+        app: test2-lb-wdc-app
+    spec:
+      securityContext:
+        runAsUser: 1001 #run as non-root user
+      containers:
+      - name: test-container
+        stdin: true
+        tty: true
+        image: harbor-repo.vmware.com/library/go-hello
+        ports:
+        - containerPort: 8080
+        securityContext:
+          allowPrivilegeEscalation: false #drop privilege escalation
+          privileged: false #run as non-privileged container
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+     external-dns.alpha.kubernetes.io/hostname: test-lb-wdc-app.tkg.vmware.com
+  name: test2-svc-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: test2-lb-wdc-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
